@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
 @font-face {
-    font-family: 'Raleway-Bold';
+    font-family: Raleway-Bold;
     src: url('../fonts/Raleway-Bold.eot');
-    src: url('fonts/Raleway-Bold.eot?#iefix') format('embedded-opentype'),
+    src: url('../fonts/Raleway-Bold.eot?#iefix') format('embedded-opentype'),
     url('../fonts/Raleway-Bold.woff') format('woff'),
     url('../fonts/Raleway-Bold.ttf') format('truetype'),
     url('../fonts/Raleway-Bold.svg#Raleway-Bold') format('svg');
 }
 
 @font-face {
-    font-family: 'Raleway-Thin';
+    font-family: Raleway-Thin;
     src: url('../fonts/Raleway-Thin.eot');
     src: url('../fonts/Raleway-Thin.eot?#iefix') format('embedded-opentype'),
     url('../fonts/Raleway-Thin.woff') format('woff'),
@@ -18,7 +18,7 @@
     url('../fonts/Raleway-Thin.svg#Raleway-Thin') format('svg');
 }
 @font-face {
-    font-family: 'Raleway';
+    font-family: Raleway;
     src: url('../fonts/Raleway-Regular.eot');
     src: url('../fonts/Raleway-Regular.eot?#iefix') format('embedded-opentype'),
     url('../fonts/Raleway-Regular.woff') format('woff'),
@@ -26,19 +26,14 @@
     url('../fonts/Raleway-Regular.svg#Raleway') format('svg');
 }
 
-* {
+body, html {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-size: 13px;
     font-family: Raleway, sans-serif;
-
 }
 
-html {
-    font-family:"Raleway", sans-serif;
-
-}
 
 .top {
     width: 100%;
@@ -47,9 +42,11 @@ html {
     height: 50px;
     color: white;
     max-width: 100%;
-    font-family: "Raleway-Bold";
+    font-family: Raleway-Bold;
     font-size: 13px;
+    margin-top: 0;
 }
+
 .green {
     color: #23B59C;
     font-size: 40px;
@@ -62,23 +59,66 @@ html {
 }
 .container {
     margin: 0 auto;
-    max-width: 1200px;
-    padding left: 20px;
+    width: 1200px;
     position: relative;
     
 }
 
+.navbar {
+    overflow: hidden;
+}
 
-.menu {
+.navbar a, .dropBtn {
     float: right;
     text-transform: uppercase;
-    margin-right: 5%;
+    margin-right: 30px;
     padding-top: -10px;
+    text-decoration: none;
+    color: #fff;
 }
 
-ul {
-    list-style: none;
+.dropdown {
+    float: right;
+    overflow: hidden;
 }
+
+.dropdown .dropBtn {
+    cursor: pointer;
+    font-size: 13px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    font-family: inherit;
+    line-height: 50px;
+    margin-right: 30px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    bottom: -148px;
+    background-color: black;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 101;
+}
+
+.dropdown-content a {
+    float: none;
+    color: white;
+    text-decoration: none;
+    display: block;
+    text-align: justify;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
 
 .logo {
     float: left;
@@ -91,9 +131,7 @@ ul {
     left: 68px;
 }
 
-.menuInt {
-    
-}
+
 
 .clearfix:before, .clearfix:after {
     content: "";
@@ -102,28 +140,33 @@ ul {
 }
 
 .bigChair {
-    background-color: #F7F7F7;
-    height: 400px;
-    max-width: 100%;
-
+    height: 500px;
+    width: 100%;
+    margin: 0;
 }
+
+.bigChair .container {
+    background: linear-gradient(#FAFAFA 60%, #D2D1D9)
+}
+
 .text {
-    width: 450px;
+    width: 419px;
     height: 100px;
     position: absolute;
-    right: 114px;
-    bottom: -208px;
+    right: 260px;
+    bottom: 173px;
     text-align: center;
     line-height: 20px;
     margin: 20px 10px;
     font-size: 14px;
+    letter-spacing: 0.8px;
 
 }
 
 h1 {
     position: absolute;
-    right: 172px;
-    bottom: -72px;
+    right: 285px;
+    bottom: 283px;
     font-size: 40px;
     text-transform: uppercase;
     font-weight: bolder;
@@ -134,18 +177,17 @@ h1 {
 .chair {
     width: 580px;
     height: 447px;
-    background-image: url("../images/black_chair.png");
     position: absolute;
-    right: 568px;
-    bottom: -395px;
-    background-repeat: no-repeat;
+    right: 620px;
+    bottom: -17px;
+    background: url("../images/black_chair.png") no-repeat;
     background-size: contain;
 }
 
 .seeMore {
     position: absolute;
-    right: 227px;
-    bottom: -227px;
+    right: 334px;
+    bottom: 120px;
     width: 260px;
     height: 50px;
     text-transform: uppercase;
@@ -161,7 +203,65 @@ h1 {
     color: white;
     font-size: 24px;
 
+}
 
+.slider{
+    position: relative;
+    height: 450px;
+
+}
+
+ul {
+    list-style: none;
+}
+
+.left_slider, .right_slider {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    /*border: 0 transparent;*/
+    height: 462px;
+    width: 70px;
+    bottom: 0;
+    font-size: 70px;
+    color: #23B59C;
+    font-family: Raleway-Thin;
+    font-weight: bolder;
+    cursor: pointer;
+    z-index: 200;
+
+
+}
+
+.right_slider {
+    right: 0px;
+}
+
+.slider_container{
+    position: relative;
+    height: 100%;
+}
+
+.picture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-size: cover;
+
+}
+
+
+.slider_container li {
+    display: none;
+}
+
+.slider_container .visible {
+    display: block;
 }
 
 
@@ -176,14 +276,14 @@ h1 {
     height: 225px;
 
 }
-.chairFirstArticle{
+.chairBox1{
     position: absolute;
     left: 68px;
     top: 28px;
     background-image: url("../images/box1_img.jpg");
 }
 
-.chairSecond{
+.chairBox2{
     position: absolute;
     left: 425px;
     top: 28px;
@@ -199,15 +299,14 @@ h1 {
     top: 148px;
 }
 
-
+.hide {
+    display: none;
+}
 
 .chairBox3 {
     font-size: 13px;
     line-height: 16px;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: 15px 24px 10px;
 
 }
 .description_text:last-child{
@@ -230,14 +329,491 @@ h1 {
     margin: 20px 10px;
 }
 
-header {
+h3 {
     text-transform: uppercase;
     font-size: 16px;
-    border-bottom: 4px solid lightseagreen
-
+    border-bottom: 6px solid #23B59C;
+    padding-right: 0;
+    width: 50%;
 
 }
 
 .price_list {
-    display: inline-block;
+    width: 100%;
+    position: relative;
+
 }
+
+
+h2  {
+    font-family: Raleway;
+    position: absolute;
+    margin-top: 42px;
+    margin-left: 80px;
+    font-size: 24px;
+    color: #595959;
+    border-bottom: 6px solid #23B59C;
+    padding-right: 240px;
+    text-transform: uppercase;
+
+
+}
+
+
+.boxes {
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.box_1, .box_2, .box_3 {
+    width: 335px;
+    height: 500px;
+    box-sizing: border-box;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.box_1, .box_3 {
+    background-color: #F9F9F9;
+    border: 2px solid #C2C2C2;
+    display: flex;
+    position: relative;
+
+}
+
+.box_2 {
+    background-color: #23B59C;
+    border: 2px solid #23B59C;
+    display: flex;
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.box_1 header, .box_3 header{
+    color: #23B59C;
+    text-align: center;
+    font-size: 20px;
+}
+
+.box_2 header {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 20px;
+}
+
+.top_box_1, .top_box_2, .top_box_3 {
+    height: 50%;
+    width: 100%;
+}
+
+.top_box_1, .top_box_3 {
+    height: 50%;
+    width: 100%;
+}
+
+.middle_box_1 {
+    height: 20%;
+    margin-top: 40px;
+}
+
+.bottom_box_1 {
+    height: 35%;
+}
+
+.middle_box_2 {
+    height: 30%;
+    margin-top: 40px;
+}
+
+.bottom_box_2 {
+    height: 25%;
+}
+
+.middle_box_3 {
+    height:  40%;
+    margin-top: 40px;
+}
+.bottom_box_3 {
+   height:  15%;
+}
+
+.top_circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    position: absolute;
+    left: 140px;
+    top: -35px;
+}
+
+.box_1 .top_circle, .box_3 .top_circle {
+    background-color: white;
+    border: 2px solid #C2C2C2;
+}
+.box_2 .top_circle {
+    background-color: #23B59C;
+    border: 2px solid #23B59C;
+}
+
+
+.top_circle_s {
+    width: 25px;
+    height: 25px;
+    margin-top: 12px;
+    margin-left: 12px;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.box_1 .top_circle_s, .box_3 .top_circle_s {
+    background-color: #C2C2C2;
+
+}
+
+.box_2 .top_circle_s {
+    background-color: white;
+}
+
+.price_circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    position: absolute;
+    left: 99px;
+    top: 90px;
+    border: 2px solid #C2C2C2;
+    text-align: center;
+    background-color: white;
+    font-family: Raleway-Bold;
+}
+
+.top_box_1 .price_circle, .top_box_3 .price_circle {
+    color: #C2C2C2;
+}
+
+.top_box_2 .price_circle {
+    color: #23B59C;
+}
+
+/*.top_box_1 header, .box_2 header, .box_3 header, {
+    margin-top: 20px;
+}*/
+.boxes header p {
+    padding-top: 15px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+
+.price_circle p:first-of-type {
+    font-size: 46px;
+    margin: 30px 0 0;
+    line-height: 25px;
+
+
+}
+
+
+
+.price_circle  span {
+    vertical-align: super;
+    font-size: 0.5em;
+
+}
+
+.middle_box_1 p:nth-of-type(2n+1), .middle_box_3 p:nth-of-type(2n+1) {
+    font-size: 24px;
+    text-align: center;
+    color: #919191;
+    background-color:#E4E4E4;
+    line-height: 40px;
+    margin: 0;
+
+}
+
+.middle_box_2 p:nth-of-type(2n+1) {
+    font-size: 24px;
+    text-align: center;
+    color: #919191;
+    background-color:white;
+    line-height: 40px;
+    margin: 0;
+}
+
+.middle_box_1 p:nth-of-type(2n), .middle_box_3 p:nth-of-type(2n) {
+    font-size: 24px;
+    text-align: center;
+    color: #909090;
+    background-color: #F1F1F1;
+    line-height: 40px;
+    margin: 0;
+}
+
+.middle_box_2 p:nth-of-type(2n) {
+    font-size: 24px;
+    text-align: center;
+    color: #919191;
+    background-color: #F1F1F1;
+    line-height: 40px;
+    margin: 0;
+}
+
+.join_1 {
+    position: absolute;
+    right: 98px;
+    bottom: 28px;
+    width: 130px;
+    height: 35px;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #23B59C;
+    border-radius: 12px;
+    margin: auto;
+
+}
+
+.join_1 a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-family: Raleway;
+
+}
+
+.join_2 {
+    position: absolute;
+    right: 98px;
+    bottom: 28px;
+    width: 130px;
+    height: 35px;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: white;
+    border-radius: 12px;
+    margin: auto;
+}
+
+.join_2 a {
+    text-decoration: none;
+    color: #23B59C;
+    font-size: 16px;
+    font-family: Raleway;
+}
+.contact {
+    width: 100%;
+    height: 550px;
+}
+
+.contact_h2 {
+    position: relative;
+    width: 95px;
+}
+
+.form-left{
+    width: 650px;
+    margin-left: 7px;
+    margin-top: 45px;
+    float: left;
+
+
+}
+
+::placeholder {
+    color: #CBCBCB;
+    font-size: 30px;
+    margin-top: 3px;
+}
+
+input,
+textarea {
+    color: #CBCBCB;
+    width: 630px;
+    font-size: 30px;
+    box-sizing: border-box;
+    border:1px solid #23B59C;
+}
+
+input[type=text],
+input[type=email] {
+    height: 70px;
+    margin-bottom: 25px;
+}
+
+textarea {
+    height: 200px;
+    padding-top: 12px;
+    padding-left: 12px;
+}
+
+input, textarea {
+    font-family: Raleway;
+    font-size: 100%;
+}
+
+.form-right {
+    width: 345px;
+    float: right;
+}
+
+.form-addon {
+    height: 210px;
+    background-image: url(../images/red_chair.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.btn {
+    width: 100%;
+    font-size: 35px;
+    padding: 15px 25px;
+    margin-top: 25px;
+    background-color: #23B59C;
+    border-radius: 12px;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: Raleway-Bold;
+}
+
+.form-checkbox {
+    display: block;
+    color: #aaa;
+    cursor: pointer;
+    font-family: Raleway-Thin;
+    font-size: 19px;
+    font-weight: 600;
+}
+.form-checkbox__input {
+    position: absolute;
+    left: -9999px;
+}
+.form-checkbox__mark {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #23B59C;
+    display: inline-block;
+    vertical-align: top;
+    float: left;
+    position: relative;
+    margin-right: 10px;
+}
+.form-checkbox__mark:before {
+    content:'';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 44px;
+    height: 44px;
+    background-image: url(../images/form_ok.jpg);
+    transform: translate(-50%, -50%) scale(0.2);
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity:0.1;
+
+}
+.form-checkbox__input:checked + .form-checkbox__mark:before {
+    opacity:1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+footer {
+    width: 100%;
+    height: 130px;
+}
+
+.copy {
+    float: left;
+    padding-left: 69px;
+    padding-top: 41px;
+    font-size: 17px;
+    color: #989898;
+    letter-spacing: 0.6px;
+}
+
+
+.twitter {
+    float: right;
+    background-image: url(../images/twitter.png);
+    width: 35px;
+    height: 35px;
+    margin-top: 26px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.pintrest {
+    float: right;
+    background-image: url(../images/pinterest.png);
+    width: 35px;
+    height: 35px;
+    margin-top: 26px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.vimeo {
+    float: right;
+    background-image: url(../images/vimeo.png);
+    width: 35px;
+    height: 35px;
+    margin-top: 26px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.flickr {
+    float: right;
+    background-image: url(../images/flickr.png);
+    width: 35px;
+    height: 35px;
+    margin-top: 26px;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+
+.logo_bottom {
+    float: right;
+    padding-top: 38px;
+    font-size: 20px;
+    color: #989898;
+    letter-spacing: 0.6px;
+    padding-left: 0px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.logo_bottom span {
+    font-weight: 900;
+    font-family: Raleway-Bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
