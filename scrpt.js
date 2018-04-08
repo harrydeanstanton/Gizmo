@@ -81,17 +81,23 @@ console.log(listAll);
 
 //chairboxes
 
-   var color = document.querySelector(".color");
-   var chairBox = document.querySelector('.chairBox1') ;
 
-   function hideText() {
+   var chairBox = document.querySelectorAll('.chairBox') ;
 
-       var hover = this;
-       var header = hover.color;
-       header.style.display = "none"
-   }
 
-   chairBox.addEventListener("mouseover", hideText)
+
+
+    for(var i = 0 ; i <chairBox.length; i++){
+        chairBox[i].addEventListener('mouseover', function(){
+            var hide = this.querySelector('.color');
+            hide.style.display='none';
+        });
+        chairBox[i].addEventListener('mouseout', function(){
+            var show = this.querySelector('.color');
+            show.style.display='block';
+        });
+    }
+
 
 
 
